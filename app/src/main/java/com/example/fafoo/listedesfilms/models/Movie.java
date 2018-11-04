@@ -3,7 +3,9 @@ package com.example.fafoo.listedesfilms.models;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
 
     //values from API
     private String title;

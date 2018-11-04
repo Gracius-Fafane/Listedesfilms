@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.fafoo.listedesfilms.models.Config;
@@ -148,4 +150,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 }

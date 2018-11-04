@@ -1,15 +1,19 @@
 package com.example.fafoo.listedesfilms.models;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.fafoo.listedesfilms.FlicksActivity;
 import com.example.fafoo.listedesfilms.R;
 
 import java.util.ArrayList;
@@ -18,7 +22,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     //list of movies
-    ArrayList<Movie> movies;
+    static ArrayList<Movie> movies;
     //config needed for image url
     Config config;
     //context for rendering
@@ -78,8 +82,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         ImageView imageView = isPortrait ? holder.ivPosterImage : holder.ivBackdropImage;
 
         //load image using glide
-        int radius = 30; // corner radius, higher value = more rounded
-        int margin = 10; // crop margin, set to 0 for corners with no crop
+        int radius = 15; // corner radius, higher value = more rounded
+        int margin = 5; // crop margin, set to 0 for corners with no crop
         GlideApp.with(context)
                 .load(imageUrl)
                 .transform(new RoundedCornersTransformation(radius, margin))
@@ -95,13 +99,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     }
 
     //create the ViewHolder as static inner class
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    //extends RecyclerView.ViewHolder implements View.OnClickListener
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         //track view objects
         ImageView ivPosterImage;
         ImageView ivBackdropImage;
         TextView tvTitle;
         TextView tvOverview;
+        private Context context;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -110,6 +117,30 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             ivBackdropImage = (ImageView) itemView.findViewById(R.id.ivBackdropImage);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvOverview = (TextView) itemView.findViewById(R.id.tvOverview);
+            // Store the context
+            this.context = itemView.getContext();
+            // Attach a click listener to the entire row view
+            itemView.setOnClickListener(this);
         }
+
+        // Handles the row being being clicked
+        @Override
+        public void onClick(View view) {
+            Log.d("MovieAdapter", "Item clicked at position " + getAdapterPosition());
+            int position = getAdapterPosition(); // gets item position
+            if (position != RecyclerView.NO_POSITION) { // Check if an item was deleted, but the user clicked it before the UI removed it
+                Movie movie = movies.get(position);
+                // We can access the data within the views
+                System.out.println(""+movie.getTitle());
+               // Toast.makeText(getA, movie.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, FlicksActivity.class);
+                intent.putExtra("movie", movie);
+                context.startActivity(intent);
+                Log.d("MovieAdapter", "Item clicked at position " + getAdapterPosition());
+            }
+        }
+
     }
+
+
 }
