@@ -40,7 +40,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     public void setConfig(Config config) {
         this.config = config;
     }
-
     //create and inflate a new view
     @NonNull
     @Override
