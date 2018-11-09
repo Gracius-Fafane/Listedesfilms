@@ -3,8 +3,11 @@ package com.example.fafoo.listedesfilms;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
@@ -44,5 +47,11 @@ public class FlicksActivity extends AppCompatActivity {
         rbVoteAverage.setRating(voteAverage);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mymenu,menu);
+        return true;
     }
+
+}
 

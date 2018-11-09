@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         app:titleTextColor="@android:color/white"
         android:background="?attr/colorPrimary">
+
     </android.support.v7.widget.Toolbar>
 
     <ImageView
@@ -55,4 +56,28 @@
         android:layout_alignParentStart="true"
         android:text=""
         android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/ivShare"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="107dp"
+        android:layout_marginRight="107dp"
+        android:layout_marginTop="12dp"
+        app:srcCompat="@android:drawable/ic_menu_share" />
+
+    <ImageView
+        android:id="@+id/ivSearch"
+        android:layout_width="49dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/ivShare"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        app:srcCompat="@android:drawable/ic_menu_search" />
+
 </RelativeLayout>
