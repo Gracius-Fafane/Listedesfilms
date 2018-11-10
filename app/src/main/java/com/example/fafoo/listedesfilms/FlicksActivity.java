@@ -2,37 +2,37 @@ package com.example.fafoo.listedesfilms;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.RatingBar;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.fafoo.listedesfilms.models.Config;
+import com.example.fafoo.listedesfilms.models.GlideApp;
 import com.example.fafoo.listedesfilms.models.Movie;
-
-import java.lang.invoke.MethodType;
 
 
 public class FlicksActivity extends AppCompatActivity {
-
+    ImageView ivDetail;
     Toolbar toolbar;
     TextView tvTitle;
     RatingBar rbVoteAverage;
     TextView tvOverview;
+    Config config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flicks);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toolbar = findViewById(R.id.toolbar);
+
         tvTitle = findViewById(R.id.tvTitle);
         rbVoteAverage = findViewById(R.id.rbVoteAverage);
         tvOverview = findViewById(R.id.tvOverview);
+        ivDetail = findViewById(R.id.image_view_detail);
 
        Movie movie = (Movie) getIntent().getSerializableExtra("movie");
 
@@ -44,12 +44,15 @@ public class FlicksActivity extends AppCompatActivity {
       tvTitle.setText(Title);
       tvOverview.setText(Overview);
         // vote average is 0..10, convert to 0..5 by dividing by 2
-        rbVoteAverage.setRating(voteAverage);
+        rbVoteAverage.setRating(voteAverage / 2);
+
+        GlideApp.with(getApplicationContext())
+        .load(R.drawable.flicks_backdrop_placeholder).fitCenter().into(ivDetail);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mymenu,menu);
+        getMenuInflater().inflate(R.menu.menu_flicks,menu);
         return true;
     }
 

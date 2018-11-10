@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_width="294dp"
         android:layout_height="wrap_content"
@@ -29,11 +29,12 @@
 
     <TextView
         android:id="@+id/tvOverview"
-        android:textColor="@color/black"
         android:layout_width="294dp"
-        android:layout_height="106dp"
+        android:layout_height="94dp"
         android:layout_below="@+id/tvTitle"
+        android:layout_marginTop="12dp"
         android:layout_toEndOf="@+id/ivPosterImage"
         android:layout_toRightOf="@id/ivPosterImage"
-        android:text="Movie overview and synopsis" />
+        android:text="Movie overview and synopsis"
+        android:textColor="@color/black" />
 </RelativeLayout>
