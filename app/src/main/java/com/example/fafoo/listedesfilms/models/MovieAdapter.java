@@ -27,6 +27,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     Config config;
     //context for rendering
     Context context;
+    // build url for poster image
+    static String imageUrl = null;
 
     //initialize with list
     public MovieAdapter(ArrayList<Movie> movies) {
@@ -64,9 +66,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
         //determine the current orientation
         boolean isPortrait = context.getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT;
-
-        // build url for poster image
-        String imageUrl = null;
 
         //if in portrait mode,load the poster image
         if(isPortrait) {
@@ -133,6 +132,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                // Toast.makeText(getA, movie.getTitle(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, FlicksActivity.class);
                 intent.putExtra("movie", movie);
+                intent.putExtra("imageUrl", imageUrl);
                 context.startActivity(intent);
                 Log.d("MovieAdapter", "Item clicked at position " + getAdapterPosition());
             }

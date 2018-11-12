@@ -33,6 +33,7 @@ public class FlicksActivity extends AppCompatActivity {
         ivDetail = findViewById(R.id.image_view_detail);
 
         Movie movie = (Movie) getIntent().getSerializableExtra("movie");
+        String imagePoster = getIntent().getStringExtra("imageUrl");
 
         String Title = movie.getTitle();
         String Overview = movie.getOverview();
@@ -44,7 +45,7 @@ public class FlicksActivity extends AppCompatActivity {
         // vote average is 0..10, convert to 0..5 by dividing by 2
         rbVoteAverage.setRating(voteAverage / 2);
         GlideApp.with(getApplicationContext())
-                .load(R.drawable.flicks_backdrop_placeholder)
+                .load(imagePoster)
                 .fitCenter().into(ivDetail);
     }
 
