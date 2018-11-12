@@ -19,7 +19,6 @@ public class FlicksActivity extends AppCompatActivity {
     TextView tvTitle;
     RatingBar rbVoteAverage;
     TextView tvOverview;
-    Config config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,26 +27,25 @@ public class FlicksActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         tvTitle = findViewById(R.id.tvTitle);
         rbVoteAverage = findViewById(R.id.rbVoteAverage);
         tvOverview = findViewById(R.id.tvOverview);
         ivDetail = findViewById(R.id.image_view_detail);
 
-       Movie movie = (Movie) getIntent().getSerializableExtra("movie");
+        Movie movie = (Movie) getIntent().getSerializableExtra("movie");
 
-      String Title = movie.getTitle();
-      String Overview = movie.getOverview();
-      float voteAverage = movie.getVoteAverage().floatValue();
+        String Title = movie.getTitle();
+        String Overview = movie.getOverview();
+        float voteAverage = movie.getVoteAverage().floatValue();
 
         // set the title and overview
-      tvTitle.setText(Title);
-      tvOverview.setText(Overview);
+        tvTitle.setText(Title);
+        tvOverview.setText(Overview);
         // vote average is 0..10, convert to 0..5 by dividing by 2
         rbVoteAverage.setRating(voteAverage / 2);
-
         GlideApp.with(getApplicationContext())
-        .load(R.drawable.flicks_backdrop_placeholder).fitCenter().into(ivDetail);
+                .load(R.drawable.flicks_backdrop_placeholder)
+                .fitCenter().into(ivDetail);
     }
 
     @Override
@@ -55,6 +53,5 @@ public class FlicksActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_flicks,menu);
         return true;
     }
-
 }
 

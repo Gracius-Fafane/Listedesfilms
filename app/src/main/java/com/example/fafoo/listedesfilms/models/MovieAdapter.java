@@ -45,7 +45,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //get the context and create the inflater
-       context = parent.getContext();
+        context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         //create the view using the item_movie layout
         View movieVew = inflater.inflate(R.layout.item_movie, parent, false);
@@ -108,7 +108,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         TextView tvOverview;
         private Context context;
 
-
         public ViewHolder(View itemView) {
             super(itemView);
             //lookup view objects by id
@@ -140,6 +139,4 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         }
 
     }
-
-
 }

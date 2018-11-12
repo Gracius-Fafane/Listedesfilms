@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
         //get the configuration on app creation
         getConfiguration();
-
     }
 
     //get the list of currently playing movies from the API
