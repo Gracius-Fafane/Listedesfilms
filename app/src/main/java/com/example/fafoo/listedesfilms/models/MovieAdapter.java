@@ -28,7 +28,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     //context for rendering
     Context context;
     // build url for poster image
-    static String imageUrl = null;
+    String imageUrl = null;
 
     //initialize with list
     public MovieAdapter(ArrayList<Movie> movies) {
@@ -132,7 +132,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                // Toast.makeText(getA, movie.getTitle(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, FlicksActivity.class);
                 intent.putExtra("movie", movie);
-                intent.putExtra("imageUrl", imageUrl);
                 context.startActivity(intent);
                 Log.d("MovieAdapter", "Item clicked at position " + getAdapterPosition());
             }
