@@ -13,7 +13,6 @@ public class Movie implements Serializable {
     private String posterpath;
     private String backdropPath;
     private Double voteAverage;
-    private String imageUrl;
 
     //initialize from JSON data
     public Movie(JSONObject object) throws JSONException {
@@ -22,7 +21,6 @@ public class Movie implements Serializable {
         posterpath = object.getString("poster_path");
         backdropPath = object.getString("backdrop_path");
         voteAverage = object.getDouble("vote_average");
-        imageUrl = object.getString(imageUrl);
     }
 
     public String getTitle() {
@@ -45,7 +43,4 @@ public class Movie implements Serializable {
         return voteAverage;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
 }

@@ -32,8 +32,9 @@ public class FlicksActivity extends AppCompatActivity {
         tvOverview = findViewById(R.id.tvOverview);
         ivDetail = findViewById(R.id.image_view_detail);
 
+        String url ="https://image.tmdb.org/t/p/w342";
+
         Movie movie = (Movie) getIntent().getSerializableExtra("movie");
-        String imagePoster = getIntent().getStringExtra("imageUrl");
 
         String Title = movie.getTitle();
         String Overview = movie.getOverview();
@@ -45,7 +46,7 @@ public class FlicksActivity extends AppCompatActivity {
         // vote average is 0..10, convert to 0..5 by dividing by 2
         rbVoteAverage.setRating(voteAverage / 2);
         GlideApp.with(getApplicationContext())
-                .load(imagePoster)
+                .load(url+movie.getBackdropPath())
                 .fitCenter().into(ivDetail);
     }
 
