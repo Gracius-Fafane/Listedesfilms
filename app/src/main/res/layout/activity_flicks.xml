@@ -26,7 +26,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="53dp"
         android:adjustViewBounds="false"
-        app:srcCompat="@android:color/black" />
+        android:background="@drawable/flicks_movie_placeholder"
+        />
 
     <ImageView
         android:layout_width="87dp"
