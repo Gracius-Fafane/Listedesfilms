@@ -24,7 +24,11 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [x] List anything else that you can get done to improve the app functionality!
+* [ ] Add your favorite movie to watch later
+* [ ] share movie with your friends
+* [ ] search movie and watch it at the same time
+
 
 ## Video Walkthrough
 
