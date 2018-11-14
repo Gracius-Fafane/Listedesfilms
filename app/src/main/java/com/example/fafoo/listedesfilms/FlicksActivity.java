@@ -45,15 +45,11 @@ public class FlicksActivity extends AppCompatActivity {
         tvOverview.setText(Overview);
         // vote average is 0..10, convert to 0..5 by dividing by 2
         rbVoteAverage.setRating(voteAverage / 2);
+
         GlideApp.with(getApplicationContext())
                 .load(url+movie.getBackdropPath())
                 .fitCenter().into(ivDetail);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_flicks,menu);
-        return true;
-    }
 }
 
